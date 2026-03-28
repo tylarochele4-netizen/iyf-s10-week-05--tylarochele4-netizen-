@@ -50,3 +50,40 @@ const lastParagraph = document.querySelector('p:last-of-type');
 
 // Logging them to check your work:
 console.log({ mainTitle, allContent, contactForm, emailInput, navItems, firstNavLink, lastParagraph });
+
+
+// Exercise 1: Text Content
+const h1 = document.querySelector("h1");
+console.log("Original Title:", h1.textContent);
+
+// Modifying text
+h1.textContent = "Welcome to DOM Practice!"; 
+
+// Exercise 2: HTML Content
+const article = document.querySelector("article");
+// Replacing the entire content of the article
+article.innerHTML = `
+    <h2 class="title">Updated Article Title</h2>
+    <p class="content highlight">This paragraph was added via innerHTML!</p>
+`;
+
+// Exercise 3: Attributes
+const firstLink = document.querySelector(".nav-link");
+
+// Setting a new attribute (opens link in new tab)
+firstLink.setAttribute("target", "_blank");
+firstLink.href = "https://google.com"; // Direct property access
+
+// Check if it worked
+console.log("Has target attribute?", firstLink.hasAttribute("target"));
+
+// Exercise 4: Styles
+const container = document.querySelector(".container");
+
+// Applying multiple styles at once
+Object.assign(container.style, {
+    backgroundColor: "#f9f9f9",
+    color: "#333",
+    padding: "40px",
+    border: "2px dashed #007bff"
+});
