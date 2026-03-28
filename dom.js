@@ -259,3 +259,35 @@ todoList.addEventListener('click', (event) => {
         }, 300);
     }
 });
+
+
+
+// --- MINI PROJECT ENHANCEMENTS ---
+
+// 1. Create a "Clear All" Button Dynamically
+const clearBtn = document.createElement('button');
+clearBtn.textContent = "Clear All Tasks";
+clearBtn.style.marginTop = "10px";
+document.querySelector('.container').appendChild(clearBtn);
+
+// 2. Clear All Functionality
+clearBtn.addEventListener('click', () => {
+    if (confirm("Are you sure you want to delete all tasks?")) {
+        todoList.innerHTML = ""; // Wipes the list clean
+        updateCounter();
+    }
+});
+
+// 3. Task Counter Function
+const counter = document.createElement('p');
+counter.id = "task-counter";
+counter.textContent = "Tasks: 0";
+document.querySelector('.container').insertBefore(counter, todoList);
+
+function updateCounter() {
+    const count = todoList.children.length;
+    counter.textContent = `Total Tasks: ${count}`;
+}
+
+// 4. Update your existing Submit Listener
+// Add "updateCounter();" to the end of your submit function!
