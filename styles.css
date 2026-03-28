@@ -1,0 +1,10 @@
+<style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f9; }
+    .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: none; }
+    .nav-list { display: flex; gap: 20px; list-style: none; padding: 0; }
+    .nav-link { text-decoration: none; color: #007bff; font-weight: bold; }
+    .highlight { background-color: #fff3cd; padding: 2px 5px; border-radius: 4px; }
+    input { padding: 10px; border: 1px solid #ddd; border-radius: 6px; margin-right: 10px; }
+    button { padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { background-color: #218838; }
+</style>
