@@ -17,6 +17,34 @@ const navItems = document.querySelectorAll('.nav-list li');
 // 6. The first .nav-link (querySelector always grabs the FIRST one it finds)
 const firstNavLink = document.querySelector('.nav-link');
 
+
+// 1. Select the header, then navigate to the nav inside it
+const header = document.querySelector("#main-header");
+const navInsideHeader = header.querySelector("nav"); 
+// OR: const navInsideHeader = header.firstElementChild.nextElementSibling; (if nav is the 2nd child)
+
+// 2. Select the first nav-link, then get its parent li
+const firstLink = document.querySelector(".nav-link");
+const parentLi = firstLink.parentElement;
+
+// 3. Select the article, then get its next sibling (section)
+const article = document.querySelector("article");
+const nextSection = article.nextElementSibling;
+
+// 4. Select the ul, then get all its child li elements
+const navList = document.querySelector(".nav-list");
+const allLis = navList.children; // Returns an HTMLCollection of the <li> tags
+
+// 5. Start from the footer and navigate up to the body
+const footer = document.querySelector("footer");
+const bodyElement = footer.parentElement;
+
+// Verification
+console.log("Nav inside header:", navInsideHeader);
+console.log("Parent of first link:", parentLi);
+console.log("Next sibling of article:", nextSection);
+console.log("Children of ul:", allLis);
+console.log("Parent of footer:", bodyElement);
 // 7. The last paragraph (Using CSS pseudo-class)
 const lastParagraph = document.querySelector('p:last-of-type');
 
