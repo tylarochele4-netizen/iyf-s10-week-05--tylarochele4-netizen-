@@ -155,3 +155,22 @@ contactForm.addEventListener("submit", (event) => {
     // Clear the form
     contactForm.reset();
 });
+
+
+// 1. Select the Parent element (the <ul>)
+const navList = document.querySelector(".nav-list");
+
+// 2. Add the listener to the Parent
+navList.addEventListener("click", (event) => {
+    // 3. Check if the thing actually clicked was a link
+    if (event.target.classList.contains("nav-link")) {
+        // Stop the link from actually navigating away
+        event.preventDefault(); 
+        
+        const linkText = event.target.textContent;
+        console.log(`Delegated Click: You clicked on ${linkText}`);
+        
+        // Example action: Highlight the clicked link
+        event.target.style.color = "orange";
+    }
+});
