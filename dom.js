@@ -125,3 +125,33 @@ function addNavItem(text, href) {
 // Testing the function
 addNavItem("Blog", "/blog");
 addNavItem("Portfolio", "/portfolio");
+
+
+// 1. Select the elements we need
+const contactForm = document.getElementById("contact-form");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const submitBtn = contactForm.querySelector("button");
+
+// 2. Add a Click Event to the button
+submitBtn.addEventListener("click", () => {
+    console.log("Submit button was clicked!");
+});
+
+// 3. Add a Submit Event to the form (The correct way to handle forms)
+contactForm.addEventListener("submit", (event) => {
+    // CRITICAL: This stops the page from refreshing
+    event.preventDefault(); 
+    
+    // Grab the values from the inputs
+    const userName = nameInput.value;
+    const userEmail = emailInput.value;
+    
+    console.log(`Form Submitted! Name: ${userName}, Email: ${userEmail}`);
+    
+    // Feedback for the user
+    alert(`Thank you, ${userName}! We received your info.`);
+    
+    // Clear the form
+    contactForm.reset();
+});
