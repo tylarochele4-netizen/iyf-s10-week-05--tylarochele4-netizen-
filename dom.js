@@ -291,3 +291,12 @@ function updateCounter() {
 
 // 4. Update your existing Submit Listener
 // Add "updateCounter();" to the end of your submit function!
+
+
+// Day 1 Challenge: Random Color Changer
+const h1 = document.querySelector('h1');
+
+h1.addEventListener('click', () => {
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    h1.style.color = "#" + randomColor;
+});
