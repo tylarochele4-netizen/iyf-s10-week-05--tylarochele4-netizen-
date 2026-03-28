@@ -7,4 +7,7 @@
     input { padding: 10px; border: 1px solid #ddd; border-radius: 6px; margin-right: 10px; }
     button { padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; }
     button:hover { background-color: #218838; }
+
+    .highlight { background-color: yellow; } 
+    .container { padding: 20px; border: 1px solid #ccc; }
 </style>
