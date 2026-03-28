@@ -221,3 +221,41 @@ todoList.addEventListener('click', (e) => {
         e.target.parentElement.remove();
     }
 });
+
+
+const todoForm = document.getElementById('contact-form');
+const taskInput = document.getElementById('name');
+
+todoForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // VALIDATION: Check if input is empty or just spaces
+    if (taskInput.value.trim() === "") {
+        taskInput.style.border = "2px solid red";
+        alert("Please enter a task name!");
+        return; // Stops the function here
+    }
+
+    // Reset border if it's valid
+    taskInput.style.border = "1px solid #ccc";
+    
+    // ... (Your previous code to create the <li> goes here)
+});
+
+
+const todoList = document.getElementById('todo-list');
+
+// We listen to the WHOLE list, not the individual buttons
+todoList.addEventListener('click', (event) => {
+    
+    // Check if the actual thing clicked was a button with the class 'delete-btn'
+    if (event.target.classList.contains('delete-btn')) {
+        const itemToRemove = event.target.parentElement;
+        
+        // Add a small fade-out effect before removing
+        itemToRemove.style.opacity = '0';
+        setTimeout(() => {
+            itemToRemove.remove();
+        }, 300);
+    }
+});
