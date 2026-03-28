@@ -87,3 +87,41 @@ Object.assign(container.style, {
     padding: "40px",
     border: "2px dashed #007bff"
 });
+
+
+// 1. Create a brand new element
+const newParagraph = document.createElement("p");
+newParagraph.textContent = "🚀 This paragraph was created entirely in JS!";
+newParagraph.className = "content highlight";
+
+// 2. Add it to the page (at the end of the article)
+const article = document.querySelector("article");
+article.appendChild(newParagraph); 
+
+// 3. Remove an element 
+const footer = document.querySelector("footer");
+if (footer) {
+    footer.remove();
+}
+
+// 4. Build: The Dynamic Nav Function
+function addNavItem(text, href) {
+    const navList = document.querySelector(".nav-list");
+    
+    // Create the li and the anchor tag
+    const newLi = document.createElement("li");
+    const newAnchor = document.createElement("a");
+    
+    // Set up the anchor
+    newAnchor.textContent = text;
+    newAnchor.href = href;
+    newAnchor.className = "nav-link";
+    
+    // Nest them: <ul> -> <li> -> <a>
+    newLi.appendChild(newAnchor);
+    navList.appendChild(newLi);
+}
+
+// Testing the function
+addNavItem("Blog", "/blog");
+addNavItem("Portfolio", "/portfolio");
