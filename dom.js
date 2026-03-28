@@ -174,3 +174,50 @@ navList.addEventListener("click", (event) => {
         event.target.style.color = "orange";
     }
 });
+
+
+// 1. Select the elements from YOUR HTML
+const contactForm = document.getElementById('contact-form');
+const nameInput = document.getElementById('name'); // We'll use this as the task input
+const todoList = document.getElementById('todo-list');
+
+// 2. Add Task Logic
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Stop page from refreshing
+
+    const taskText = nameInput.value.trim();
+    if (taskText === "") return;
+
+    // Create the task item
+    const li = document.createElement('li');
+    li.style.display = "flex";
+    li.style.justifyContent = "space-between";
+    li.style.padding = "10px";
+    li.style.borderBottom = "1px solid #ddd";
+
+    li.innerHTML = `
+        <span class="task-text">${taskText}</span>
+        <button class="delete-btn" style="color: red;">Delete</button>
+    `;
+
+    // Add it to our new list
+    todoList.appendChild(li);
+
+    // Clear the input
+    contactForm.reset();
+});
+
+// 3. Delegation Logic (Toggle & Delete)
+todoList.addEventListener('click', (e) => {
+    // If clicking the text, highlight it (Toggle)
+    if (e.target.classList.contains('task-text')) {
+        e.target.style.textDecoration = 
+            e.target.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+        e.target.style.color = e.target.style.color === 'gray' ? 'black' : 'gray';
+    }
+
+    // If clicking delete, remove the whole <li>
+    if (e.target.classList.contains('delete-btn')) {
+        e.target.parentElement.remove();
+    }
+});
